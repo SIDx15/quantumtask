@@ -1,8 +1,18 @@
 import './home.css';
 import React from 'react';
 import {useNavigate, Link} from 'react-router-dom';
+import { useDispatch,useSelector} from 'react-redux';
+import { logoutInitiate } from '../redux/action';
 
 const Home = () => {
+    const {currentUser} = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    
+    const handleAuth = ()=> {
+        if (currentUser) {
+            dispatch(logoutInitiate());
+        }
+    };
     return (
         <div>
             
@@ -16,6 +26,7 @@ const Home = () => {
             <br/>
             <h1 >Using facebook / google / other email</h1>
             <br/>
+            <h1 >and your email id has been registered in my firebase</h1>
             <br/>
             <br/>
             
@@ -24,11 +35,8 @@ const Home = () => {
             <br/>
             <br/>
            
-            <Link to ="/">
-                <button className='button-18'>
-                    BACK
-                </button>
-                </Link>
+           
+             
                 <br/>
             <br/>
             

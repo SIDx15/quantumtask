@@ -8,6 +8,7 @@ import {useDispatch,  useSelector} from 'react-redux';
 import React,{useState, useEffect} from 'react';
 import {auth} from "./firebase";
 import { setuser } from './redux/action';
+import Userroute from './components/userroute';
 
 
 function App() {
@@ -15,12 +16,13 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      
+     
       <Routes>
-        <Route exact path="/home" element={<Home/>} />
+      <Route exact path='/home' element={<Home/>} />
+            
         <Route exact path="/" element={< Login />} />
         <Route exact path="/register" element={<Register />} />
-      </Routes>
+        </Routes>
     </div>
     </BrowserRouter>
   );

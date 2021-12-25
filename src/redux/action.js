@@ -29,6 +29,20 @@ const loginfail = (error) => ({
     payload: error,
 });
 
+const logoutStart = () => ({
+    type: types.LOGOUT_START,
+});
+
+const logoutSuccess = (user) => ({
+    type :types.LOGOUT_SUCCESS,
+    
+});
+
+const logoutfail = (error) => ({
+    type : types.LOGOUT_FAIL,
+    payload: error,
+});
+
 export const setuser = (user) => ({
     type :types.SET_USER,
     payload : user,
@@ -83,6 +97,17 @@ export const loginInitiate = (email, password )=>{
         }).catch((error) => dispatch(loginfail(error.message)))
     }
 }
+
+export const logoutInitiate = ()=>{
+    return function (dispatch){
+        dispatch(logoutStart);
+        auth.signOut().then((response)=>
+            
+            dispatch(logoutSuccess())
+        ).catch((error) => dispatch(logoutfail(error.message)))
+    }
+}
+
 
 export const googleInitiate = ()=>{
     return function (dispatch){

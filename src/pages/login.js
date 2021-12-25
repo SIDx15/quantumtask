@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import {useDispatch,  useSelector} from 'react-redux';
-import {useNavigate, Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { loginInitiate, googleInitiate, fbInitiate } from '../redux/action';
 import './Login.css';
 import GoogleIcon from '@mui/icons-material/Google';
